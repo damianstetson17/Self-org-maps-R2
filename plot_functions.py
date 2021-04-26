@@ -30,7 +30,7 @@ def plot_r2(points_to_plot,centroides_to_plot):
     #draw plot
     plt.draw()
     #wait before "update" the plot
-    plt.pause(0.001)
+    plt.pause(0.01)
     #clean the axes
     plt.cla()
 
