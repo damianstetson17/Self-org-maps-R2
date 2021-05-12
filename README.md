@@ -1,6 +1,6 @@
 # Self-Organizing Maps using Python in R2
 
-Aproximación del algoritmo SOM (Self-Organizing Maps) desarrollado en python para la materia _"Inteligencia Artificial 1"_
+Aproximación del algoritmo SOM (Self-Organizing Maps) desarrollado en python para la materia _"Inteligencia Artificial 1"_ de la carrera de Ingeniería en Informatica.
 
 ![main_menu](https://github.com/damianstetson17/SOM_in_R2/blob/master/img_src/main_wn.png)
 ![plot_example](https://github.com/damianstetson17/SOM_in_R2/blob/master/img_src/plot_example.png)
