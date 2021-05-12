@@ -14,6 +14,25 @@ class Main_window:
     learn = 0.5
 
     def __init__(self):
+        #values setted frame
+        frame_values_selected = LabelFrame(self.root, text="SELECTED VALUES", padx=65,pady=71.5)
+        frame_values_selected.grid(row=1, column=1)
+        #data set path label
+        label_data_set_path = Label(frame_values_selected, text="DATA SET path file: "+self.pathDataSetFile)
+        label_data_set_path.pack()
+        #number clusters label
+        label_clusters = Label(frame_values_selected, text="Number of clusters selected: "+str(self.clustersNumber))
+        label_clusters.pack()
+        #number steps label
+        label_steps_final = Label(frame_values_selected, text="Number of steps selected: "+str(self.MaxStep))
+        label_steps_final.pack()
+        #number learn restrictor
+        label_learn_restrictor = Label(frame_values_selected, text="Number of Learn Restrictor: "+str(self.learn))
+        label_learn_restrictor.pack()
+        #start the SOM algorithm button
+        button_start_som = Button(frame_values_selected,text="START SOM ALGORITHM", command=self.startSom)
+        button_start_som.pack()
+        
         #inputs frame
         frame_inputs = LabelFrame(self.root, text="INITIAL VALUES", padx=50,pady=50)
         frame_inputs.grid(row=1, column=0)
@@ -35,7 +54,7 @@ class Main_window:
         sv = StringVar()
         sv.trace("w", lambda name, index, mode, sv=sv: self.setSteps(sv,label_steps_final))
         entry_maxSteps = Entry(frame_inputs,textvariable=sv, width=25,justify='center')
-        #entry_maxSteps.insert(END,self.MaxStep)
+        entry_maxSteps.insert(0,self.MaxStep)
         entry_maxSteps.pack()
 
         #learn input
@@ -44,27 +63,8 @@ class Main_window:
         sv = StringVar()
         sv.trace("w", lambda name, index, mode, sv=sv: self.setLearn(sv,label_learn_restrictor))
         entry_maxLearn = Entry(frame_inputs,textvariable=sv, width=25,justify='center')
-        #entry_maxLearn.insert(END,self.learn)
+        entry_maxLearn.insert(0,self.learn)
         entry_maxLearn.pack()
-
-        #values setted frame
-        frame_values_selected = LabelFrame(self.root, text="SELECTED VALUES", padx=65,pady=71.5)
-        frame_values_selected.grid(row=1, column=1)
-        #data set path label
-        label_data_set_path = Label(frame_values_selected, text="DATA SET path file: "+self.pathDataSetFile)
-        label_data_set_path.pack()
-        #number clusters label
-        label_clusters = Label(frame_values_selected, text="Number of clusters selected: "+str(self.clustersNumber))
-        label_clusters.pack()
-        #number steps label
-        label_steps_final = Label(frame_values_selected, text="Number of steps selected: "+str(self.MaxStep))
-        label_steps_final.pack()
-        #number learn restrictor
-        label_learn_restrictor = Label(frame_values_selected, text="Number of Learn Restrictor: "+str(self.learn))
-        label_learn_restrictor.pack()
-        #start the SOM algorithm button
-        button_start_som = Button(frame_values_selected,text="START SOM ALGORITHM", command=self.startSom)
-        button_start_som.pack()
 
     #som start method
     def startSom(self):
@@ -86,7 +86,7 @@ class Main_window:
             
     def setClusterNumber(self,val,label_clusters):
         self.clustersNumber=val
-        print(self.clustersNumber)
+        print(f"Number of clusters selected: {self.clustersNumber}")
         label_clusters.config(text="Number of clusters selected: "+str(self.clustersNumber))
     
     def setSteps(self, sv,label_steps_final):
@@ -96,20 +96,26 @@ class Main_window:
                 self.MaxStep = int(sv.get())
                 label_steps_final.config(
                     text="Number of steps selected: "+str(self.MaxStep))
-            print(self.MaxStep)
-        except:
-            print("Not a number")
+            else:
+                self.MaxStep = self.MaxStep
+            print(f"Number of steps selected: {self.MaxStep}")
+        except Exception as e:
+            print(f"Error: {str(e)}")
+            print(f"Reseted number of steps to: {self.MaxStep}")
     
     def setLearn(self, sv,label_steps_final):
         try:
             #if is a number and > 0
-            if(int(sv.get()) > 0):
-                self.learn = int(sv.get())
+            if(float(sv.get()) > -1):
+                self.learn = float(sv.get())
                 label_steps_final.config(
                     text="Number of Learn Restrictor selected: "+str(self.learn))
-            print(self.learn)
-        except:
-            print("Not a number")
+            else:
+                self.learn = self.learn
+            print(f"Number of Learn Restrictor selected: {self.learn}")
+        except Exception as e:
+            print(f"Error: {str(e)}")
+            print(f"Reseted number of Learn Restrictor to: {self.learn}")
 
     #close or display methods
     def display(self):
