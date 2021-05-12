@@ -69,10 +69,12 @@ class Main_window:
     #som start method
     def startSom(self):
         if self.pathDataSetFile != "Not selected.":
-            somi = SOM(int(self.clustersNumber),int(self.learn),self.pathDataSetFile,int(self.MaxStep))
-            somi.start()
+            if self.pathDataSetFile != "":
+                somi = SOM(int(self.clustersNumber),int(self.learn),self.pathDataSetFile,int(self.MaxStep))
+                somi.start()
+            else:
+                tkinter.messagebox.showerror('ERROR AL INTENTAR EJECUTAR SOM', 'Primero debe seleccionar un DATASET antes de ejecutar')
         else:
-            print("NO SE HA SELECCIONADO UN DATASET")
             tkinter.messagebox.showerror('ERROR AL INTENTAR EJECUTAR SOM', 'Primero debe seleccionar un DATASET antes de ejecutar')
             
     #setter methods
