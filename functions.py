@@ -1,9 +1,8 @@
+#encoding: utf-8
 import math
 import random
 from clusters import Cluster
 from math import e
-
-#encoding: utf-8
 
 #return a list of vectors from the .txt
 def load_from_txt(data_file_txt):
