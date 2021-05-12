@@ -6,9 +6,16 @@ Aproximación del algoritmo SOM (Self-Organizing Maps) desarrollado en python pa
 
 # 🚀 ¿Cómo ejecutar? 🚀
 
+Windows:
 ```bash
 py main.py
 ```
+
+Linux:
+```bash
+python3 main.py
+```
+
 # ⚙️ Instalación: ⚙️
 
 * Se necesita instalar la libraria [MatPlotLib](https://matplotlib.org/)
