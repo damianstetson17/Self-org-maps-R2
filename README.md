@@ -3,7 +3,7 @@
 Aproximación del algoritmo SOM (Self-Organizing Maps) desarrollado en python para la materia _"Inteligencia Artificial 1"_
 
 ![main_menu](https://github.com/damianstetson17/SOM_in_R2/blob/master/img_src/main_wn.png)
-![plot_example](https://github.com/damianstetson17/SOM_in_R2/blob/master/img_src/main_wn.png)
+![plot_example](https://github.com/damianstetson17/SOM_in_R2/blob/master/img_src/plot_example.png)
 
 # 🚀 ¿Cómo ejecutar? 🚀
 
