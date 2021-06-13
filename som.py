@@ -5,6 +5,9 @@ import plot_functions
 import math
 from clusters import Cluster
 
+from pylab import *
+import matplotlib.pyplot as plt
+
 class SOM:
     list_points_Knowledge = []
     InitialClustersList = []
@@ -28,7 +31,7 @@ class SOM:
         self.InitialClustersList = self.clustersList.copy()
         c=0
         while(c < len(self.clustersList)):
-            self.listObjetcCluster.append(Cluster(c))
+            self.listObjetcCluster.append(Cluster(c,self.clustersList[c]))
             c=c+1
         
         while( self.t <= self.MaxStep):
@@ -60,8 +63,30 @@ class SOM:
             plot_functions.plot_r2(self.listObjetcCluster,self.clustersList,self.t)
             #increment the while of the iteration
             self.t+=1
+        self.k_means_method()
         #end algorithm
-
-
     
-    
+    def k_means_method(self):
+        sum_euc = 0
+        nc = 1
+        Xpoints = []
+        Ypoints = []
+        while( nc <= self.number_of_clusters):
+            for c in self.listObjetcCluster:
+                sum_euc = sum_euc + c.getSumAllEuc()
+            print(f"kmeans para ({nc} clusters) => {round((sum_euc/nc),2)}")
+            Xpoints.append(nc)
+            Ypoints.append(round((sum_euc/nc),2))
+            sum_euc = 0
+            nc = nc + 1
+        print(f"kmeans: ({Xpoints},{Ypoints})")
+        plt.subplot(1, 2, 2)
+        plt.plot(Xpoints,Ypoints,"ko-")
+        plt.title("Método del codo")
+        plt.xlabel('Número de Clusters')
+        plt.xlim(0,self.number_of_clusters+1)
+        plt.xticks(range(0, self.number_of_clusters+1))
+        plt.ylabel('WCCS')
+        plt.grid()
+        plt.show()
+        

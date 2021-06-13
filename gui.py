@@ -86,7 +86,7 @@ class Main_window:
             
     def setClusterNumber(self,val,label_clusters):
         self.clustersNumber=val
-        print(f"Number of clusters selected: {self.clustersNumber}")
+       #print(f"Number of clusters selected: {self.clustersNumber}")
         label_clusters.config(text="Number of clusters selected: "+str(self.clustersNumber))
     
     def setSteps(self, sv,label_steps_final):
@@ -98,7 +98,7 @@ class Main_window:
                     text="Number of steps selected: "+str(self.MaxStep))
             else:
                 self.MaxStep = self.MaxStep
-            print(f"Number of steps selected: {self.MaxStep}")
+            #print(f"Number of steps selected: {self.MaxStep}")
         except Exception as e:
             print(f"Error: {str(e)}")
             print(f"Reseted number of steps to: {self.MaxStep}")
@@ -112,10 +112,10 @@ class Main_window:
                     text="Number of Learn Restrictor selected: "+str(self.learn))
             else:
                 self.learn = self.learn
-            print(f"Number of Learn Restrictor selected: {self.learn}")
+            #print(f"Number of Learn Restrictor selected: {self.learn}")
         except Exception as e:
             print(f"Error: {str(e)}")
-            print(f"Reseted number of Learn Restrictor to: {self.learn}")
+            #print(f"Reseted number of Learn Restrictor to: {self.learn}")
 
     #close or display methods
     def display(self):

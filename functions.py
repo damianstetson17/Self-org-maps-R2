@@ -8,8 +8,8 @@ from math import e
 def load_from_txt(data_file_txt):
     #create a list
     list_points_Knowledge = []
-    print("\n##############################################")
-    print("# Loading data from txt:\t\t     #")
+    #print("\n##############################################")
+    #print("# Loading data from txt:\t\t     #")
     
     for data in data_file_txt.readlines():
         vectorString = ""
@@ -22,7 +22,7 @@ def load_from_txt(data_file_txt):
         naturalvector=[]
         naturalvector.append(float(vector[0]))
         naturalvector.append(float(vector[1]))
-        print (f" Vector added to knowledge list: [{naturalvector}]")
+        #print (f" Vector added to knowledge list: [{naturalvector}]")
         list_points_Knowledge.append(naturalvector)
     data_file_txt.close()
     return list_points_Knowledge 
@@ -35,7 +35,7 @@ def generate_random_list(number_of_clusters):
     clustersList = []
     for i in range(number_of_clusters):
       clustersList.append([give_random_values(),give_random_values()])
-    show_random_generated(clustersList)
+    #show_random_generated(clustersList)
     return clustersList
 
 #show the random values generated from generate_random_list()

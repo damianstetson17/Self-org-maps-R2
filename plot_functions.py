@@ -6,11 +6,12 @@ from clusters import Cluster
 import matplotlib.pyplot as plt
 
 def plot_r2(listObjetcCluster, clustersList,t):
+    plt.subplot(1, 2, 1)
     plt.ion()
     #clean the axes
     plt.cla()
     #plot atributes
-    title("Iteración: " + str(t))
+    title("SOM (Iteración: " + str(t) + ")")
     xlabel('Eje X')
     ylabel('Eje Y')
  
